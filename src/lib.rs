@@ -20,13 +20,13 @@ pub type CubePosition = [usize; 3];
 /// use std::time::Duration;
 /// use led_cube::*;
 ///
-/// let mut cube = Cube::new("COM5");
+/// let mut cube = Cube::new("COM5").unwrap();
 ///
 /// for z in 0..4 {
 ///     for y in 0..4 {
 ///         for x in 0..4 {
 ///             cube.clear();
-///             cube.set(x, y, z, true);
+///             cube.set([x, y, z], true);
 ///             cube.flush();
 ///             thread::sleep(Duration::from_millis(500));
 ///         }

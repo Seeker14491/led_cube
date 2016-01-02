@@ -4,6 +4,7 @@ use std::ffi::OsStr;
 use std::io;
 use std::io::Write;
 
+/// A type representing a position on the cube, of the form [`x`, `y`, `z`].
 pub type CubePosition = [usize; 3];
 
 /// A connection to an LED cube.
@@ -57,7 +58,7 @@ impl Cube {
         self.port.write(&self.state).map(|_| {})
     }
 
-    /// Turn the LED at position [`x`, `y`, `z`] on or off based on `state`.
+    /// Turn the LED at position `pos` on or off based on `state`.
     ///
     /// # Panics
     /// Panics if `pos` is out of range.
@@ -72,7 +73,7 @@ impl Cube {
         }
     }
 
-    /// Returns `true` if the LED at position [`x`, `y`, `z`] is on.
+    /// Returns `true` if the LED at position `pos` is on.
     ///
     /// # Panics
     /// Panics if `pos` is out of range.

@@ -43,14 +43,14 @@ impl Cube {
     /// Connect to an LED cube through a serial port.
     pub fn new<T: AsRef<OsStr> + ?Sized>(port: &T) -> io::Result<Self> {
         let mut cube = Cube {
-            state: [0b0000, 0b0000, 0b0000, 0b0000,
-                    0b0000, 0b0000, 0b0000, 0b0000,
-                    0b0000, 0b0000, 0b0000, 0b0000,
-                    0b0000, 0b0000, 0b0000, 0b0000],
+            state: [0, 0, 0, 0,
+                    0, 0, 0, 0,
+                    0, 0, 0, 0,
+                    0, 0, 0, 0],
             port: serial::open(port).unwrap(),
         };
         try!(cube.flush());
-        Result::Ok(cube)
+        Ok(cube)
     }
 
     /// Update the LED cube to match the internal buffer.
@@ -84,10 +84,10 @@ impl Cube {
 
     /// Turns off all LEDs.
     pub fn clear(&mut self) {
-        self.state = [0b0000, 0b0000, 0b0000, 0b0000,
-                      0b0000, 0b0000, 0b0000, 0b0000,
-                      0b0000, 0b0000, 0b0000, 0b0000,
-                      0b0000, 0b0000, 0b0000, 0b0000];
+        self.state = [0, 0, 0, 0,
+                      0, 0, 0, 0,
+                      0, 0, 0, 0,
+                      0, 0, 0, 0];
     }
 }
 

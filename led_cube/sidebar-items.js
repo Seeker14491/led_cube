@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Cube","A connection to an LED cube."]],"type":[["CubePosition","A type representing a position on the cube, of the form [`x`, `y`, `z`]."]]});

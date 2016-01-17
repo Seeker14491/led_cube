@@ -40,7 +40,7 @@ pub struct Cube {
 }
 
 impl Cube {
-    /// Connect to an LED cube through a serial port.
+    /// Connects to an LED cube through a serial port.
     pub fn new<T: AsRef<OsStr> + ?Sized>(port: &T) -> io::Result<Self> {
         let mut cube = Cube {
             state: [0, 0, 0, 0,
@@ -53,12 +53,12 @@ impl Cube {
         Ok(cube)
     }
 
-    /// Update the LED cube to match the internal buffer.
+    /// Updates the LED cube to match the internal buffer.
     pub fn flush(&mut self) -> io::Result<()>{
         self.port.write(&self.state).map(|_| {})
     }
 
-    /// Turn the LED at position `pos` on or off based on `state`.
+    /// Turns the LED at position `pos` on or off based on `state`.
     ///
     /// # Panics
     /// Panics if `pos` is out of range.
